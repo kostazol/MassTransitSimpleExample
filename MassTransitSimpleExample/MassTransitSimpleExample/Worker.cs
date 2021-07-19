@@ -22,7 +22,8 @@ namespace MassTransitSimpleExample
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                await _bus.Publish(new Message { Text = $"The time is {DateTimeOffset.Now}" });
+                var endpoint = await _bus.GetSendEndpoint(new Uri("queue:QueueName"));
+                await endpoint.Send(new Message { Text = $"The time is {DateTimeOffset.Now}" });
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
