@@ -1,9 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MassTransit;
 
 namespace MassTransitSimpleExample
 {
@@ -18,6 +15,8 @@ namespace MassTransitSimpleExample
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddMassTransitBus();
+
                     services.AddHostedService<Worker>();
                 });
     }
