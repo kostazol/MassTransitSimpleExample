@@ -12,11 +12,23 @@ namespace MassTransitSimpleExample
             {
                 x.UsingAmazonSqs((context, cfg) =>
                 {
-                    // Yandex Message Queue
+                    //// Yandex Message Queue
+                    //AmazonSQSConfig _sqsConfig = new AmazonSQSConfig
+                    //{
+                    //    ServiceURL = "https://message-queue.api.cloud.yandex.net",
+                    //    AuthenticationRegion = "ru-central1"
+                    //};
+                    //cfg.Host("ru-central1", h =>
+                    //{
+                    //    h.Config(_sqsConfig);
+                    //    h.AccessKey("your-iam-access-key");
+                    //    h.SecretKey("your-iam-secret-key");
+                    //});
+
+                    // Mail.ru Cloud Solutions
                     AmazonSQSConfig _sqsConfig = new AmazonSQSConfig
                     {
-                        ServiceURL = "https://message-queue.api.cloud.yandex.net",
-                        AuthenticationRegion = "ru-central1"
+                        ServiceURL = "https://sqs.mcs.mail.ru"
                     };
                     cfg.Host("ru-central1", h =>
                     {
