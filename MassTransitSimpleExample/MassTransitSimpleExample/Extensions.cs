@@ -22,7 +22,7 @@ namespace MassTransitSimpleExample
                     {
                         h.Config(_sqsConfig);
                         h.AccessKey("your-iam-access-key");
-                        h.SecretKey("your-iam-access-key");
+                        h.SecretKey("your-iam-secret-key");
                     });
 
                     //// Amazon SQS
